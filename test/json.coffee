@@ -42,7 +42,7 @@ async_tests =
         if err
           return error err
         unless value is 1
-          return error err
+          return error 'Value mismatch:', value
         f.get 'a', (err, value) ->
           if err
             return error err

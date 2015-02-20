@@ -42,6 +42,24 @@ class ObjFile
     @_objFileCue     ?= []
     @_objFileOptions ?= opts
 
+    # expose moethods on targets if requested
+    if (target = opts.expose) and typeof opts.expose is 'object'
+      unless Array.isArray target
+        target = [target]
+      for item in target when item and typeof item is 'object'
+        item.get = (args...) =>
+          @get args...
+        item.set = (args...) =>
+          @set args...
+        item.del = (args...) =>
+          @del args...
+    if (target = opts.exposeGet) and typeof opts.exposeGet is 'object'
+      unless Array.isArray target
+        target = [target]
+      for item in target when item and typeof item is 'object'
+        item.get = (args...) =>
+          @get args...
+
     setTimeout => # ensure async (return variable assignment happens first)
       @_objFileRead cb
 

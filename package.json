@@ -1,6 +1,6 @@
 {
   "name": "objfile",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Read from + write to + update INI and JSON files via a simple asynchronous API",
   "main": "js/objfile.js",
   "scripts": {

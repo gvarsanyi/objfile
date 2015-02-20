@@ -1,3 +1,4 @@
+.PHONY: test build clean
 
 build:
 	@npm install
@@ -10,7 +11,7 @@ test: build
 	@for FILE in `find test/ | grep .coffee | grep -v /mock/`; \
 	do \
 		echo TEST: $$FILE; \
-		node_modules/.bin/coffee $$FILE; \
+		node_modules/.bin/coffee $$FILE || break; \
 	done;
 	@echo " -- done"
 	@rm -rf tmp/
