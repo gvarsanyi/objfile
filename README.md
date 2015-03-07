@@ -19,7 +19,7 @@ Read from + write to + update INI and JSON files via a simple asynchronous API.
       if (err) {
         console.error(err);
       } else {
-        console.error('Value:', value);
+        console.log('Value:', value);
       }
     });
 
@@ -28,7 +28,7 @@ Read from + write to + update INI and JSON files via a simple asynchronous API.
       if (err) {
         console.error(err);
       } else {
-        console.error('Value set');
+        console.log('Value set');
       }
     });
 

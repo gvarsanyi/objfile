@@ -10,8 +10,8 @@ build:
 test: build
 	@for FILE in `find test/ | grep .coffee | grep -v /mock/`; \
 	do \
-		echo TEST: $$FILE; \
-		node_modules/.bin/coffee $$FILE || break; \
+		echo "\nTEST:" $${FILE%.*}; \
+		node_modules/.bin/coffee $$FILE || exit 1; \
 	done;
 	@echo " -- done"
 	@rm -rf tmp/

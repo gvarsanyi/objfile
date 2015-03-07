@@ -133,12 +133,14 @@ ObjFile = (function() {
           return typeof (base = _this._objFileCue.shift()) === "function" ? base() : void 0;
         };
         ready = function() {
-          var base;
           _this._objFileReading = false;
-          if (typeof cb === "function") {
-            cb();
-          }
-          return typeof (base = _this._objFileCue.shift()) === "function" ? base() : void 0;
+          return setTimeout(function() {
+            var base;
+            if (typeof cb === "function") {
+              cb();
+            }
+            return typeof (base = _this._objFileCue.shift()) === "function" ? base() : void 0;
+          });
         };
         if (!_this._objFilePath) {
           return error('File source path missing');

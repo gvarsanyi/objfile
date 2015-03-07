@@ -78,8 +78,9 @@ class ObjFile
 
       ready = =>
         @_objFileReading = false
-        cb?()
-        @_objFileCue.shift()?() # flush next in cue
+        setTimeout =>
+          cb?()
+          @_objFileCue.shift()?() # flush next in cue
 
       unless @_objFilePath
         return error 'File source path missing'
